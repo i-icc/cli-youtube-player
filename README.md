@@ -8,3 +8,4 @@
 
 ## ubuntu 系(検証はしていませんがいけるはず)
 - `sudo apt install youtube-dl ffmpeg jp2a pv sox beep`
+- 

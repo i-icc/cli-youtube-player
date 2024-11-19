@@ -1,5 +1,6 @@
 import subprocess
 
+# Youtube をダウンロードするクラス
 class YoutubeDlownloader:
     def __init__(self):
         self.base_url = "https://www.youtube.com/watch?v="

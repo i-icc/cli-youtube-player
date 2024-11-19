@@ -1,5 +1,6 @@
 import os
 
+# 新しいディレクトリ作ったり確認するクラス
 class DirManager:
     def __init__(self, id, base_path):
         self.target_dir = os.path.join(base_path, id)

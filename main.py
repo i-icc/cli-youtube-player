@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import os
 from src.dir_manager import DirManager
 from src.youtube_downloader import YoutubeDlownloader
 from src.cli_player import CliPlayer
@@ -58,8 +59,9 @@ def _create_files(id, dr, fps):
 
     try:
         text_path = dr.get_text_path()
+        file_count = os.listdir(flame_path)
         # jp2aでフレームをASCIIアートに変換
-        for i in range(1, 3000): 
+        for i in range(1, file_count): 
             commands = ["jp2a", "--width=128", f"{flame_path}/frame{i:09d}.png", ">", f"{text_path}/{i:09d}.txt"]
             subprocess.run(" ".join(commands), shell=True, check=True)
     except FileNotFoundError:

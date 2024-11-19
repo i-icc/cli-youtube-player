@@ -1,11 +1,14 @@
 import subprocess
 from time import time
+import os
 
+# テキストをダーッと表示するクラス
 class CliPlayer:
     def __init__(self, texts_dir_path):
         self.texts_dir_path = texts_dir_path
         
     def play(self, fps):
+        file_count = os.listdir(self.texts_dir_path)
         i = 0
         start_time = time()
         while True:
@@ -13,6 +16,8 @@ class CliPlayer:
             current_time = time()
             s, ms = str(current_time - start_time).split(".")
             i = int(s) * fps + int(int(ms[:3]) * fps / 1000)
+            if file_count < i:
+                break
             # 表示用の時刻
             play_time = int(current_time - start_time)
             play_time_m = play_time//60
