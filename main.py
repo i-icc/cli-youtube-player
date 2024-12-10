@@ -59,7 +59,7 @@ def _create_files(id, dr, fps):
 
     try:
         text_path = dr.get_text_path()
-        file_count = os.listdir(flame_path)
+        file_count = len(os.listdir(flame_path))
         # jp2aでフレームをASCIIアートに変換
         for i in range(1, file_count):
             commands = ["jp2a", "--width=128", f"{flame_path}/frame{i:09d}.png", ">", f"{text_path}/{i:09d}.txt"]
