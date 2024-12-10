@@ -17,17 +17,17 @@ def main(id):
     fps = 30
     dr = DirManager(id, base_path)
     is_exist = dr.check_exit_dir()
-    
+
     if not is_exist:
         _create_files(id, dr, fps)
-        
+
     while True:
         is_play = input("再生を始めますか？(y/n):")
         if is_play == "y":
             break
         if is_play == "n":
             return
-    
+
     # AA表示
     text_path = dr.get_text_path()
     cp = CliPlayer(text_path)
