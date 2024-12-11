@@ -17,17 +17,17 @@ def main(id):
     fps = 30
     dr = DirManager(id, base_path)
     is_exist = dr.check_exit_dir()
-    
+
     if not is_exist:
         _create_files(id, dr, fps)
-        
+
     while True:
         is_play = input("再生を始めますか？(y/n):")
         if is_play == "y":
             break
         if is_play == "n":
             return
-    
+
     # AA表示
     text_path = dr.get_text_path()
     cp = CliPlayer(text_path)
@@ -59,9 +59,9 @@ def _create_files(id, dr, fps):
 
     try:
         text_path = dr.get_text_path()
-        file_count = os.listdir(flame_path)
+        file_count = len(os.listdir(flame_path))
         # jp2aでフレームをASCIIアートに変換
-        for i in range(1, file_count): 
+        for i in range(1, file_count):
             commands = ["jp2a", "--width=128", f"{flame_path}/frame{i:09d}.png", ">", f"{text_path}/{i:09d}.txt"]
             subprocess.run(" ".join(commands), shell=True, check=True)
     except FileNotFoundError:

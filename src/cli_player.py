@@ -6,9 +6,9 @@ import os
 class CliPlayer:
     def __init__(self, texts_dir_path):
         self.texts_dir_path = texts_dir_path
-        
+
     def play(self, fps):
-        file_count = os.listdir(self.texts_dir_path)
+        file_count = len(os.listdir(self.texts_dir_path))
         i = 0
         start_time = time()
         while True:

@@ -6,7 +6,7 @@ class DirManager:
         self.target_dir = os.path.join(base_path, id)
         self.flame_dir_name = "flames"
         self.text_dir_name = "texts"
-        
+
 
     def check_exit_dir(self):
         """指定されたディレクトリが存在するか確認する"""
@@ -22,13 +22,13 @@ class DirManager:
         except OSError as e:
             print(f"Error creating directory: {e}")
             raise e
-        
+
     def get_target_path(self):
         return self.target_dir
-    
+
     def get_flame_path(self):
         return f"{self.target_dir}/{self.flame_dir_name}"
-    
+
     def get_text_path(self):
         return f"{self.target_dir}/{self.text_dir_name}"
 
